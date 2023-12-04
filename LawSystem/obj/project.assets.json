@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\06000856512\\.nuget\\packages\\": {}
+    "C:\\Users\\Thiago\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\06000856512\\Desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
+      "projectUniqueName": "C:\\Users\\Thiago\\desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
       "projectName": "LawSystem",
-      "projectPath": "C:\\Users\\06000856512\\Desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
-      "packagesPath": "C:\\Users\\06000856512\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\06000856512\\Desktop\\G1-CsharpNET\\LawSystem\\obj\\",
+      "projectPath": "C:\\Users\\Thiago\\desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
+      "packagesPath": "C:\\Users\\Thiago\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Thiago\\desktop\\G1-CsharpNET\\LawSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\06000856512\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Thiago\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -54,12 +54,30 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.14, 7.0.14]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[7.0.14, 7.0.14]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.14, 7.0.14]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[7.0.14, 7.0.14]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
