@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\.NET\\G1-CsharpNET\\LawSystem\\LawSystem.csproj": {}
+    "C:\\Users\\06000856512\\Desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj": {}
   },
   "projects": {
-    "E:\\.NET\\G1-CsharpNET\\LawSystem\\LawSystem.csproj": {
+    "C:\\Users\\06000856512\\Desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\.NET\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
+        "projectUniqueName": "C:\\Users\\06000856512\\Desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
         "projectName": "LawSystem",
-        "projectPath": "E:\\.NET\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
-        "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
-        "outputPath": "E:\\.NET\\G1-CsharpNET\\LawSystem\\obj\\",
+        "projectPath": "C:\\Users\\06000856512\\Desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
+        "packagesPath": "C:\\Users\\06000856512\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\06000856512\\Desktop\\G1-CsharpNET\\LawSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\06000856512\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -48,30 +48,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
