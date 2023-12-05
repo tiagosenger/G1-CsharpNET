@@ -3,7 +3,7 @@ namespace LawSystem.Entities
 {
     public class Escritorio {
         public static void IniciarCaso(CasoJuridico caso, DateTime dataInicio){
-            if (caso.Status == StatusCaso.EmAberto) {
+            if (caso.Status == "Em aberto") {
                 caso.DataInicio = dataInicio;
                 Console.WriteLine($"Caso iniciado em {dataInicio}.");
             }
@@ -41,8 +41,19 @@ namespace LawSystem.Entities
         }
 
         public static void AdicionarAdvogado(List<CasoJuridico> casos, Advogado advogado){
-                casos.Add(advogado);
-                Console.WriteLine("Advogado adicionado com sucesso!");
+            casos.Add(advogado);
+            Console.WriteLine($"Advogado {advogado.Nome} adicionado com sucesso!");
+        }
+
+        public static void AdicionarCliente(Lista<CasoJuridico> casos, int numeroCaso, Cliente cliente){
+            var caso = casos.Find(c => c.Numero == numeroCaso);
+            if(caso != null){
+                caso.cliente = cliente;
+                Console.WriteLine($"Cliente {cliente.Nome} adicionado ao caso {caso.ListaDocumentos[numeroCaso]} com sucesso!");
+                
+            } else {
+                Console.WriteLine($"Caso {numeroCaso} não encontrado.");
+            }
         }
 
     }
