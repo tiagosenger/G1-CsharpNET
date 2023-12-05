@@ -1,4 +1,5 @@
 #region Métodos relacionados à adição, edição ou exclusão de dados. 
+
 namespace LawSystem.Entities{
     
     public class Escritorio {

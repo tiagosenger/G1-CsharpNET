@@ -1,7 +1,6 @@
-using System.Globalization;
-using Exceptions;
+#region Classes Documento e Caso Jurídico, e métodos relacionados ao ambiente de escritório.
 
-namespace Desk {
+namespace LawSystem.Entities{
     class Documento{
         public int Codigo {get; set;}
         private DateTime modificacao;
@@ -106,3 +105,5 @@ namespace Desk {
         
     }
 }
+
+#endregion 
