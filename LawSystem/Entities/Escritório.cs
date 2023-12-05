@@ -39,5 +39,11 @@ namespace LawSystem.Entities
                 Console.WriteLine($"Caso {numeroCaso} não encontrado.");
             }
         }
+
+        public static void AdicionarAdvogado(List<CasoJuridico> casos, Advogado advogado){
+                casos.Add(advogado);
+                Console.WriteLine("Advogado adicionado com sucesso!");
+        }
+
     }
 }
