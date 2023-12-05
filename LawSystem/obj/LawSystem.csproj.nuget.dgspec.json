@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\06000856512\\Desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj": {}
+    "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/LawSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\06000856512\\Desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj": {
+    "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/LawSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\06000856512\\Desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
+        "projectUniqueName": "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/LawSystem.csproj",
         "projectName": "LawSystem",
-        "projectPath": "C:\\Users\\06000856512\\Desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
-        "packagesPath": "C:\\Users\\06000856512\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\06000856512\\Desktop\\G1-CsharpNET\\LawSystem\\obj\\",
+        "projectPath": "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/LawSystem.csproj",
+        "packagesPath": "/home/victorquirino/.nuget/packages/",
+        "outputPath": "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\06000856512\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/victorquirino/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
         }
       }
     }
