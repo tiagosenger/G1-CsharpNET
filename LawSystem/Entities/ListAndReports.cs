@@ -1,3 +1,5 @@
+using System.Collections;
+
 class ListAndReports{
     public void advogadosFaixaIdade(Advogados advogados)
     {
@@ -7,7 +9,7 @@ class ListAndReports{
         Console.WriteLine("Informe a idade máxima: ");
         int max = Convert.ToInt16(Console.ReadLine());
         
-        var correspondencias = advogados.Where(x => x.DataNascimento >= DateTime.Now.Year - min && x <= DateTime.Now.Year - max).ToList();
+        var correspondencias = advogados.Where(x => x.DataNascimento.Year >= DateTime.Now.Year - min && x.DataNascimento.Year <= DateTime.Now.Year - max).ToList();
         if (correspondencias == null)
         {
             Console.WriteLine("Não há advogados com essa faixa de idade.");
@@ -32,7 +34,7 @@ class ListAndReports{
         Console.WriteLine("Informe a idade máxima: ");
         int max = Convert.ToInt16(Console.ReadLine());
 
-        var correspondencias = cliente.Where(x => x.DataNascimento >= DateTime.Now.Year - min && x <= DateTime.Now.Year - max).ToList();
+        var correspondencias = cliente.Where(x => x.DataNascimento.Year >= DateTime.Now.Year - min && x.DataNascimento.Year <= DateTime.Now.Year - max).ToList();
         if (correspondencias == null)
         {
             Console.WriteLine("Não há clientes com essa faixa de idade.");
@@ -67,8 +69,8 @@ class ListAndReports{
         }
     }
     public void clientesOrdemAlfabetica(Cliente cliente){
-        var listaOrdenada =  new List<string>();
-        listaOrdenada = cliente.Lista;
+        
+        var listaOrdenada = cliente.Lista;
         listaOrdenada.Sort();
 
         Console.WriteLine("Lista de clientes em ordem alfabética: ");
@@ -99,5 +101,65 @@ class ListAndReports{
             }
         }
     }
-
+    public void MesAniversario(Cliente cliente,Advogado advogado){
+        Console.WriteLine("Informe o mês a filtrar: ");
+        int mes = Convert.ToInt16(Console.ReadLine());
+        
+        var correspondenciasAdvogado = advogado.Any(x => x.DataNascimento.Month == mes).Tolist();
+        var correspondenciasCliente = cliente.Any(x => x.DataNascimento.Month == mes).Tolist();
+        if (correspondenciasAdvogado == null)
+        {
+            Console.WriteLine("Não há advogados aniversariando este neste mês.");
+        }
+        else
+        {
+            Console.WriteLine("Lista de advogados aniversariando este mês: ");
+            int counter = 1;
+            foreach (var x in correspondenciasAdvogado)
+            {
+                Console.WriteLine(counter+". "+x);
+                counter += 1;
+            }
+        }
+        Console.WriteLine();    
+        
+        if (correspondenciasCliente == null)
+        {
+            Console.WriteLine("Não há clientes aniversariando este neste mês.");
+        }
+        else
+        {
+            Console.WriteLine("Lista de clientes aniversariando este mês: ");
+            int counter = 1;
+            foreach (var x in correspondenciasCliente)
+            {
+                Console.WriteLine(counter+". "+x);
+                counter += 1;
+            }
+        }
+    }
+    public void casosAbertos(Casos casos){
+        
+        List<Casos> listaOrdenada = casos.Lista.OrderBy(x => x.DataInicio).ToList();
+        
+        var correspondencias = listaOrdenada.Any(x => x.Status == "Em aberto").Tolist();
+        
+        correspondencias = correspondencias.Sort();
+        if (correspondencias == null)
+        {
+            Console.WriteLine("Não há casos abertos.");
+        }
+        else
+        {
+            Console.WriteLine("Lista de casos em aberto: ");
+            int counter = 1;
+            foreach (var x in correspondencias)
+            {
+                Console.WriteLine(counter+". "+x);
+                counter += 1;
+            }
+        }
+    
+    
+    }
 }
