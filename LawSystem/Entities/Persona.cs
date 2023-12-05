@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class Pessoa
 {
@@ -16,7 +17,8 @@ public class Pessoa
     }
 
 
-    public bool ValidarCPF()
+
+    public virtual bool ValidarCPF()
     {
 
         if (CPF.Length != 11)
@@ -36,7 +38,7 @@ public class Pessoa
         return cpfFormatado == CPF;
     }
 
-    public bool ValidarDataNascimento()
+    public virtual bool ValidarDataNascimento()
     {
 
         if (DataNascimento > DateTime.Now)
@@ -52,5 +54,89 @@ public class Pessoa
 
         return true;
 
+    }
+
+    public class Advogado : Pessoa
+    {
+        public string CNA { get; set; }
+
+        public Advogado(string nome, string sobrenome, DateTime dataNascimento, string cpf, string cna)
+            : base(nome, sobrenome, dataNascimento, cpf)
+        {
+            CNA = cna;
+        }
+
+        public override bool ValidarCPF(List<Advogado> advogados)
+        {
+            if (!base.ValidarCPF(advogados))
+            {
+                return false;
+            }
+
+            if (CNA.Length != 6 && CNA.Length == 0)
+            {
+                return false;
+            }
+
+            if (advogados.Exists(p => p is Advogado advogado && advogado.CNA == CNA))
+            {
+                Console.WriteLine("CNA já cadastrado.");
+                return false;
+            }
+
+            return true;
+        }
+
+        public override bool ValidarDataNascimento()
+        {
+            return base.ValidarDataNascimento();
+        }
+    }
+
+    public class Cliente : Pessoa
+    {
+        public string EstadoCivil { get; set; }
+        public string Profissao { get; set; }
+
+        public Cliente(string nome, string sobrenome, DateTime dataNascimento, string cpf, string estadoCivil, string profissao)
+            : base(nome, sobrenome, dataNascimento, cpf)
+        {
+            EstadoCivil = estadoCivil;
+            Profissao = profissao;
+        }
+
+        public override bool ValidarCPF(List<Cliente> clientes)
+        {
+            if (!base.ValidarCPF(clientes))
+            {
+                return false;
+            }
+
+            if (clientes.Exists(p => p is Cliente cliente && cliente.CPF == CPF))
+            {
+                Console.WriteLine("CPF já cadastrado para um cliente.");
+                return false;
+            }
+
+            return true;
+        }
+
+        public override bool ValidarDataNascimento()
+        {
+            return base.ValidarDataNascimento();
+        }
+
+        public bool ValidarEstadoCivil()
+        {
+            if (string.IsNullOrEmpty(EstadoCivil))
+            {
+                Console.WriteLine("Estado civil não pode ser vazio.");
+                return false;
+            }
+
+            // Outras validações específicas do estado civil podem ser adicionadas aqui.
+
+            return true;
+        }
     }
 }
