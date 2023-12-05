@@ -1,4 +1,7 @@
 #region Classes Documento e Caso Jurídico, e métodos relacionados ao ambiente de escritório.
+using System.Globalization;
+using Exceptions;
+using static LawSystem.Entities.Pessoa;
 
 namespace LawSystem.Entities{
     class Documento{
@@ -7,7 +10,7 @@ namespace LawSystem.Entities{
 
         public DateTime Modificacao => modificacao;
 
-        public void setModificacao(string data){
+        public void SetModificacao(string data){
             if(DateTime.TryParseExact(data, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out modificacao)){
 
             } else {
@@ -20,7 +23,7 @@ namespace LawSystem.Entities{
 
         public Documento(int codigo, string modificacao, string tipo, string descricao){
             Codigo = codigo;
-            setModificacao(modificacao);
+            SetModificacao(modificacao);
             Tipo = tipo;
             Descricao = descricao;
         }

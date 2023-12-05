@@ -1,4 +1,4 @@
-#region 
+#region Definições de Pessoa, Advogado e Cliente herdam essas definições.
 
 namespace LawSystem.Entities{
     public class Pessoa
@@ -15,26 +15,29 @@ namespace LawSystem.Entities{
             DataNascimento = dataNascimento;
             CPF = cpf;
         }
-
-
-
-        public virtual bool ValidarCPF()
+        public virtual bool ValidarCPF(List<Pessoa> pessoas)
         {
-
-            if (CPF.Length != 11)
+            if (CPF.Length != 11 || !int.TryParse(CPF, out _))
             {
-                return false;
-            }
-
-            if (!int.TryParse(CPF, out _))
-            {
-                Console.WriteLine("CPF deve conter apenas números.");
+                Console.WriteLine("CPF inválido.");
                 return false;
             }
 
             string cpfFormatado = string.Format("{0:000\\.000\\.000\\-00}", long.Parse(CPF));
 
-            return cpfFormatado == CPF;
+            if (cpfFormatado != CPF)
+            {
+                Console.WriteLine("CPF inválido.");
+                return false;
+            }
+
+            if (pessoas.Exists(p => p.CPF == CPF))
+            {
+                Console.WriteLine("CPF já cadastrado.");
+                return false;
+            }
+
+            return true;
         }
 
         public virtual bool ValidarDataNascimento()
@@ -64,19 +67,21 @@ namespace LawSystem.Entities{
                 CNA = cna;
             }
 
-            public override bool ValidarCPF(List<Advogado> advogados)
+
+            public override bool ValidarCPF(List<Pessoa> pessoas)
             {
-                if (!base.ValidarCPF(advogados))
+                if (!base.ValidarCPF(pessoas))
                 {
                     return false;
                 }
 
                 if (CNA.Length != 6 && CNA.Length == 0)
                 {
+                    Console.WriteLine("CNA inválido.");
                     return false;
                 }
 
-                if (advogados.Exists(p => p is Advogado advogado && advogado.CNA == CNA))
+                if (pessoas.Exists(p => p is Advogado advogado && advogado.CNA == CNA))
                 {
                     Console.WriteLine("CNA já cadastrado.");
                     return false;
@@ -103,21 +108,21 @@ namespace LawSystem.Entities{
                 Profissao = profissao;
             }
 
-            public override bool ValidarCPF(List<Cliente> clientes)
+            public override bool ValidarCPF(List<Pessoa> pessoas)
             {
-                if (!base.ValidarCPF(clientes))
+                if (!base.ValidarCPF(pessoas))
                 {
                     return false;
                 }
 
-                if (clientes.Exists(p => p is Cliente cliente && cliente.CPF == CPF))
+                if (pessoas.Exists(p => p is Cliente cliente && cliente.CPF == CPF))
                 {
                     Console.WriteLine("CPF já cadastrado para um cliente.");
                     return false;
                 }
 
                 return true;
-            }
+            }   
 
             public override bool ValidarDataNascimento()
             {
