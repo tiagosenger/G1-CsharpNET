@@ -75,29 +75,13 @@ public class Operations
         }
     }
 
-    public static void EditarAdvogado(Advogado advogado, string novoNome, DateTime novaDataNascimento, string novoCNA){
-        advogado.Nome = novoNome;
-        advogado.DataNascimento = novaDataNascimento;
-        advogado.CNA = novoCNA;
-        Console.WriteLine("Advogado editado com sucesso!");
-    }
-
-    public static void ExcluirAdvogado(Escritorio escritorio, Advogado advogado){
-        escritorio.RemoverAdvogado(advogado);
+    public static void ExcluirAdvogado(List<Advogados> casos, Advogado advogado){
+        casos.Remove(advogado);
         Console.WriteLine("Advogado removido com sucesso!");
     }
 
-    public static void EditarCliente(Cliente cliente, string novoNome, DateTime novaDataNascimento, string novoEstadoCivil, string novaProfissao){
-        cliente.Nome = novoNome;
-        cliente.DataNascimento = novaDataNascimento;
-        cliente.EstadoCivil = novoEstadoCivil;
-        cliente.Profissao = novaProfissao;
-        Console.WriteLine("Cliente editado com sucesso!");
-    }
-
-    public static void ExcluirCliente(Escritorio escritorio, Cliente cliente){
-        escritorio.RemoverCliente(cliente);
-        Console.WriteLine("Cliente removido com sucesso!");
+    public static void ExcluirCliente(List<CasosJuridicos> casos, Cliente cliente){
+       
     }
 
 }
