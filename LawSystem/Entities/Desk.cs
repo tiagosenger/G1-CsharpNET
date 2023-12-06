@@ -1,112 +1,98 @@
 #region Classes Documento e Caso Jurídico, e métodos relacionados ao ambiente de escritório.
-using System.Globalization;
-using Exceptions;
-using static LawSystem.Entities.Pessoa;
-
+using Advogado = LawSystem.Entities.Pessoa.Advogado;
+using Cliente = LawSystem.Entities.Pessoa.Cliente;
 namespace LawSystem.Entities{
-    class Documento{
-        public int Codigo {get; set;}
-        private DateTime modificacao;
+ public class Documento
+{
 
-        public DateTime Modificacao => modificacao;
+    public DateTime DataDeModificacao { get; set; }
+    public int Codigo { get; set;}
+    public string? Tipo { get; set; }
+    public string? Descricao {get; set;}
 
-        public void SetModificacao(string data){
-            if(DateTime.TryParseExact(data, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out modificacao)){
+    public Documento(DateTime dataDeModificacao, int codigo, string? tipo, string? descricao)
+    {
+        DataDeModificacao = dataDeModificacao;
+        Codigo = codigo;
+        Tipo = tipo;
+        Descricao = descricao;
+    }
+}
 
-            } else {
-                throw new DataInvalidaException("Data fornecida inválida!");
-            }
-        }
+    public class CasoJuridico
+{
+    public DateTime Abertura { get; set; }
+    public float ProbabilidadeSucesso { get; set; }
+    public List<Documento> Documentos { get; private set; } 
+    public List<(float Custos, string Descricao)>? Custos { get; set; }
+    public DateTime Encerramento { get; set; }
+    public List<Advogado>? Advogados { get; set; }
+    public Cliente? Cliente { get; set; }
+    public string? Status { get; set; }
 
-        public string? Tipo {get; set;}
-        public string? Descricao {get; set;}
+    public CasoJuridico(){}
 
-        public Documento(int codigo, string modificacao, string tipo, string descricao){
-            Codigo = codigo;
-            SetModificacao(modificacao);
-            Tipo = tipo;
-            Descricao = descricao;
+    public CasoJuridico(DateTime abertura, float probabilidadeSucesso, List<(DateTime DataDeModificacao, int Codigo, string? Tipo, string? Descricao)> documentos,
+                        List<(float Custos, string Descricao)>? custos, DateTime encerramento,
+                        List<Advogado>? advogados, Cliente? cliente, string? status)
+    {
+        Abertura = abertura;
+        ProbabilidadeSucesso = probabilidadeSucesso;
+        Documentos = documentos.Select(doc => new Documento(doc.DataDeModificacao, doc.Codigo, doc.Tipo, doc.Descricao)).ToList();
+        Custos = custos;
+        Encerramento = encerramento;
+        Advogados = advogados;
+        Cliente = cliente;
+        Status = status;
+    }
+
+
+    public void AdicionarDocumento(Documento documento)
+    {
+        Documentos.Add(documento);
+        Console.WriteLine("Documento adicionado ao Caso Jurídico com sucesso!");
+    }
+
+    public void ListarDocumentos()
+    {
+        Console.WriteLine("Documentos Associados ao Caso Jurídico:");
+        foreach (var documento in Documentos)
+        {
+            ExibirInformacoesDocumento(documento);
+            Console.WriteLine();
         }
     }
 
-    class CasoJuridico {
-        private DateTime abertura;
-        public DateTime Abertura => abertura;
-        public float ProbabilidadeSucesso {get; set;}
-        public List<Documento> Documentos {get; set;}
-        private List<(float, string)> custos;
-        public float CustoTotal{
-            get{
-                float total = 0.0f;
+    public void DeletarDocumento(int codigo)
+    {
+        try
+        {
+            var documento = Documentos.Find(d => d.Codigo == codigo);
 
-                foreach(var custo in custos){
-                    total += custo.Item1;
-                }
-
-                return total;
+            if (documento != null)
+            {
+                Documentos.Remove(documento);
+                Console.WriteLine("Documento deletado com sucesso!!!\n");
+            }
+            else
+            {
+                throw new("Documento não encontrado");
             }
         }
-        private DateTime? encerramento;
-        public DateTime? Encerramento {
-            get {return encerramento;}
-            private set {encerramento = value;}
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
         }
-        public List<Advogado> Advogados {get;}
-        public Cliente ClienteCaso {get;set;}
-        private string? status;
-        public string? Status {
-            get {return status;}
-            set {
-                if(value != "Em aberto" && value != "Concluído" && value != "Arquivado"){
-                    throw new StatusInvalidoException("Status inválido! O status deve ser 'Em aberto', 'Concluído' ou 'Arquivado'");
-                } else {
-                    status = value;
-                }
-            }
-        }
-
-        public CasoJuridico(string dataAbertura, float probabilidadeSucesso, Cliente cliente){
-            setaDataAbertura(dataAbertura);
-            ProbabilidadeSucesso = probabilidadeSucesso;
-            Advogados = new();
-            ClienteCaso = cliente;
-            Status = "Em aberto";
-            custos = new();
-        }
-
-        public void setaDataAbertura(string entrada){
-            if(DateTime.TryParseExact(entrada, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out abertura)){
-
-            } else {
-                throw new DataInvalidaException("Data de abertura fornecida inválida!");
-            }
-        }
-
-        public void setDataEncerramento(string data){
-            if(Status == "Em aberto"){
-                throw new DataInvalidaException("O caso está em aberto! Não pode haver uma data de encerramento!");
-            }
-
-            DateTime dataConvertida;
-            if(DateTime.TryParseExact(data, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataConvertida)){
-
-            } else {
-                throw new DataInvalidaException("Data de encerramento fornecida inválida!");
-            }
-
-            if(DateTime.Compare(Abertura, dataConvertida) < 0) Encerramento = dataConvertida;
-            else throw new DataInvalidaException("A data de encerramento precisa ser posterior à data de abertura do caso!");
-        }
-
-        public void adicionaCusto(float valor, string descricao){
-            custos.Add((valor, descricao));
-        }
-
-        public void adicionaAdvogado(Advogado advogado){
-            Advogados.Add(advogado);
-        }
-        
     }
+
+    public void ExibirInformacoesDocumento(Documento documento)
+    {
+        Console.WriteLine($"Código: {documento.Codigo}");
+        Console.WriteLine($"Tipo: {documento.Tipo ?? "N/A"}");
+        Console.WriteLine($"Descrição: {documento.Descricao ?? "N/A"}");
+        Console.WriteLine($"Data de Modificação: {documento.DataDeModificacao:dd/MM/yyyy}");
+    }
+}
 }
 
 #endregion 
