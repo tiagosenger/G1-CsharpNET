@@ -8,20 +8,20 @@ namespace LawSystem.Entities{
 public class ListAndReports{
     
     public class Relatorios{
-        private List<Pessoa.Advogado> ListaDeAdvogados = new List<Pessoa.Advogado>();
-        private List<Pessoa.Cliente> ListaDeClientes = new List<Pessoa.Cliente>();
+        private List<Advogado> ListaDeAdvogados = new List<Advogado>();
+        private List<Cliente> ListaDeClientes = new List<Cliente>();
         private List<CasoJuridico> ListaDeCasos = new List<CasoJuridico>();
 
-        public void adicionarAdvogadoParaLista(Pessoa.Advogado advogado){
+        public void adicionarAdvogadoParaLista(Advogado advogado){
             ListaDeAdvogados.Add(advogado);
         }
-        public void adicionarClientesParaLista(Pessoa.Cliente cliente){
+        public void adicionarClientesParaLista(Cliente cliente){
             ListaDeClientes.Add(cliente);
         }
         public void adicionarCasoParaLista(CasoJuridico caso){
             ListaDeCasos.Add(caso);
         }
-        public void advogadosFaixaIdade(List<Pessoa.Advogado> advogado)
+        public void advogadosFaixaIdade(List<Advogado> advogado)
         {
             Console.WriteLine("Informe a idade míninma: ");
             int min = Convert.ToInt16(Console.ReadLine());
@@ -46,7 +46,7 @@ public class ListAndReports{
             }
 
         }
-        public void clientesFaixaDeIdade(List<Pessoa.Cliente> cliente)
+        public void clientesFaixaDeIdade(List<Cliente> cliente)
         {
             Console.WriteLine("Informe a idade míninma: ");
             int min = Convert.ToInt16(Console.ReadLine());
@@ -70,7 +70,7 @@ public class ListAndReports{
                 }
             }
         }
-        public void clientesEstadocivilInformado(List<Pessoa.Cliente> cliente)
+        public void clientesEstadocivilInformado(List<Cliente> cliente)
         {
             Console.WriteLine("Informe a estado civil a ser critério de filtro: ");
             string estadocivil = Console.ReadLine()!.ToLower();
@@ -90,7 +90,7 @@ public class ListAndReports{
                 }
             }
         }
-        public void clientesOrdemAlfabetica(List<Pessoa.Cliente> cliente)
+        public void clientesOrdemAlfabetica(List<Cliente> cliente)
         {
 
             var listaOrdenada = cliente.OrderBy(o=>o.Nome).ToList();
@@ -103,7 +103,7 @@ public class ListAndReports{
                 counter += 1;
             }
         }
-        public void clientesProfissaoSelecionada(List<Pessoa.Cliente> cliente)
+        public void clientesProfissaoSelecionada(List<Cliente> cliente)
         {
             Console.WriteLine("Informe a profissão a ser critério de filtro: ");
             string profissao = Console.ReadLine()!.ToLower();
@@ -123,7 +123,7 @@ public class ListAndReports{
                 }
             }
         }
-        public void MesAniversario(List<Pessoa.Cliente> cliente, List<Pessoa.Advogado> advogado)
+        public void MesAniversario(List<Cliente> cliente, List<Advogado> advogado)
         {
             Console.WriteLine("Informe o mês a filtrar(em numero): ");
             int mes = Convert.ToInt16(Console.ReadLine());
@@ -182,11 +182,10 @@ public class ListAndReports{
                 }
             }
         }
-        public void advogadosCasosDecrescente(List<Pessoa.Advogado> advogado)
+        public void advogadosCasosDecrescente(List<Advogado> ListaAdvogados)
         {
-
-            advogado.OrderByDescending(x => x.).ToList();
-            var correspondencias = listaOrdenada.Any(x => x.Status == "Concluído").Tolist();
+            
+            var correspondencias = ListaAdvogados.OrderByDescending(x => x.Casos.Count).ToList();
             
             if (correspondencias == null)
             {
@@ -198,12 +197,48 @@ public class ListAndReports{
                 int counter = 1;
                 foreach (var x in correspondencias)
                 {
-                    Console.WriteLine(counter + ". " + x.Nome);
-                    Console.WriteLine(x.CasosConcluidos);
+                    Console.WriteLine(counter + ". " +x.Nome+": "+x.Casos.Count);
                     Console.WriteLine();
                     counter += 1;
                 }
             }
+        }
+        public void tiposMaisCadastrados(List<CasoJuridico> ListaDeCasos){
+            
+            List<Dictionary<string,int>> ListaTipoComQuantidade = new List<Dictionary<string,int>>;
+            foreach (var caso in ListaDeCasos)
+            {
+                foreach (var documento in caso.Documentos)
+                {
+                    if (ListaTipoComQuantidade != null && ListaTipoComQuantidade.Count > 0)
+                    {
+                        // Verificando se a chave existe em qualquer dicionário da lista
+                        foreach (var dicionario in ListaTipoComQuantidade)
+                        {
+                            if (dicionario.ContainsKey(documento.Tipo!))
+                            {
+                            // Aumentando o valor da chave em 1 se ela existir
+                            dicionario[documento.Tipo!] += 1;
+                            return;
+                            }
+                        }
+                    }
+                    // Se a chave não foi encontrada em nenhum dicionário, adiciona um novo dicionário com a chave e valor 0
+                    Dictionary<string,int> TipoComQuantidade = new Dictionary<string,int>
+                    {
+                    { documento.Tipo!, 0 }
+                    };
+
+                    ListaTipoComQuantidade!.Add(TipoComQuantidade);
+                }
+    
+                }
+                for (var i = 0; i < 10; i++)
+                {
+                    Console.WriteLine(ListaTipoComQuantidade[i]);
+                }
+            }
+            
         }
     }
     public class Listas {
