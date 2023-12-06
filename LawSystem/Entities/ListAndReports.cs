@@ -176,9 +176,10 @@ public class ListAndReports{
         public static void advogadosCasosDecrescente()
         {
             
-            var correspondencias = ListaDeAdvogados.Where(x => x.CasosAssociados.Status.ToLower() == "em aberto").OrderByDescending(x => x.Casos.Count).ToList();
-            
-            if (correspondencias == null)
+            var correspondencias = ListaDeAdvogados.Where(x => x.Casos.Any(x=>x.Status == "concluído"));
+            var Listaordenada = correspondencias.OrderBy(x => x.Casos.Count);
+
+            if (Listaordenada == null)
             {
                 Console.WriteLine("Não há advogados que concluiram casos.");
             }
@@ -186,9 +187,9 @@ public class ListAndReports{
             {
                 Console.WriteLine("Lista de advogados e a quantidade de casos concluidos por eles: ");
                 int counter = 1;
-                foreach (var x in correspondencias)
+                foreach (var x in Listaordenada)
                 {
-                    Console.WriteLine(counter + ". " +x.Nome+": "+x.CasosAssociados.Count);
+                    Console.WriteLine(counter + ". " +x.Nome+": "+x.Casos.Count);
                     Console.WriteLine();
                     counter += 1;
                 }
