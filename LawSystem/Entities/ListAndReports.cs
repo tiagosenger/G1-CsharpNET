@@ -1,8 +1,13 @@
 #region Métodos relacionados à geração de listas e relatórios. 
+using Advogado = LawSystem.Entities.Pessoa.Advogado;
+using Cliente = LawSystem.Entities.Pessoa.Cliente;
+using Documento = LawSystem.Entities.Escritorio.Documento;
+using CasoJuridico = LawSystem.Entities.Escritorio.CasoJuridico;
 
 namespace LawSystem.Entities{
-    class ListAndReports
-    {
+public class ListAndReports{
+    
+    public class Relatorios{
         public void advogadosFaixaIdade(Advogados advogados)
         {
             Console.WriteLine("Informe a idade míninma: ");
@@ -188,5 +193,57 @@ namespace LawSystem.Entities{
             }
         }
     }
+    public class Listas {
+            public static void ListarAdvogados(List<Advogado> advogados)
+            {
+                Console.WriteLine("Lista de Advogados Cadastrados:");
+                foreach (var advogado in advogados)
+                {
+                    Console.WriteLine($"Nome: {advogado.Nome} {advogado.Sobrenome}");
+                    Console.WriteLine($"CPF: {advogado.CPF}");
+                    Console.WriteLine($"CNA: {advogado.CNA}");
+                    Console.WriteLine();
+                }
+            }
+
+            public static void ListarClientes(List<Cliente> clientes)
+            {
+                Console.WriteLine("Lista de Clientes Cadastrados:");
+                foreach (var cliente in clientes)
+                {
+                    Console.WriteLine($"Nome: {cliente.Nome} {cliente.Sobrenome}");
+                    Console.WriteLine($"CPF: {cliente.CPF}");
+                    Console.WriteLine($"Estado Civil: {cliente.EstadoCivil}");
+                    Console.WriteLine($"Profissão: {cliente.Profissao}");
+                    Console.WriteLine();
+                }
+            }
+
+            public static void ListarDocumentos(List<Documento> documentos)
+            {
+                Console.WriteLine("Lista de Documentos Cadastrados:");
+                foreach (var documento in documentos)
+                {
+                    Console.WriteLine($"Código: {documento.Codigo}");
+                    Console.WriteLine($"Tipo: {documento.Tipo ?? "N/A"}");
+                    Console.WriteLine($"Descrição: {documento.Descricao ?? "N/A"}");
+                    Console.WriteLine($"Data de Modificação: {documento.DataDeModificacao:dd/MM/yyyy}");
+                    Console.WriteLine();
+                }
+            }
+
+            public static void ListarCasosJuridicos(List<CasoJuridico> casosJuridicos)
+            {
+                Console.WriteLine("Lista de Casos Jurídicos Cadastrados:");
+                foreach (var casoJuridico in casosJuridicos)
+                {
+                    Console.WriteLine($"Abertura: {casoJuridico.Abertura:dd/MM/yyyy}");
+                    Console.WriteLine($"Probabilidade de Sucesso: {casoJuridico.ProbabilidadeSucesso}%");
+                    Console.WriteLine($"Status: {casoJuridico.Status ?? "N/A"}");
+                    Console.WriteLine();
+                }
+            }
+        }
+    }    
 }
 #endregion

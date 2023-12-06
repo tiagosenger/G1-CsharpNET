@@ -5,7 +5,9 @@ class Program{
     static void Main(){
         Escritorio escritorio = new Escritorio(); 
         Operations operacoes = new Operations();
-        ListAndReports listAndReports = new ListAndReports(); 
+        ListAndReports.Listas _listas = new ListAndReports.Listas(); 
+        ListAndReports.Relatorios _relatorios = new ListAndReports.Relatorios(); 
+ 
 
     int opcao;
 
@@ -62,12 +64,16 @@ class Program{
                             switch (opcaoListas)
                             {
                                 case 1:
+                                    ListAndReports.Listas.ListarAdvogados(advogados); 
                                     break;
                                 case 2:
+                                    ListAndReports.Listas.ListarClientes(clientes);                                 
                                     break;
                                 case 3:
+                                    ListAndReports.Listas.ListarDocumentos(documentos);                                 
                                     break;
                                 case 4:
+                                    ListAndReports.Listas.ListarCasosJuridicos(caso);                                 
                                     break;
                             }
                         } while (opcaoListas != 0);
@@ -119,10 +125,8 @@ class Program{
                         } while (opcaoRelatorios != 0);
                         break;
                 }
-                
+
             } while (opcao != 0);
         }
     }
-
-
 #endregion
