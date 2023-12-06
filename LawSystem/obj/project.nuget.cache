@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "/5Di9aL7Dvh/QsV4OBxs1DMofgtlLlxFzPff/eVDL3zBk0z1tybr3urXHCoGQRZYKyg2iUEWeuIYAl9uGucNjw==",
+  "success": true,
+  "projectFilePath": "E:\\.NET\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Gabriel\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.14\\microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\Gabriel\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.14\\microsoft.windowsdesktop.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\Gabriel\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.14\\microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\Gabriel\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.14\\microsoft.netcore.app.host.win-x64.7.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}
