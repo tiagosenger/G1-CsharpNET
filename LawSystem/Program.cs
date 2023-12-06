@@ -50,10 +50,10 @@ class Program{
                         do
                         {
                             Console.WriteLine("Menu de Listas:");
-                            Console.WriteLine("1. Listar Advogados");
-                            Console.WriteLine("2. Listar Clientes");
-                            Console.WriteLine("3. Listar Documentos");
-                            Console.WriteLine("4. Listar Casos Jurídicos");
+                            Console.WriteLine("1. Lista de Advogados cadastrados");
+                            Console.WriteLine("2. Lista de Clientes cadastrados");
+                            Console.WriteLine("3. Listar Documentos Cadastrados");
+                            Console.WriteLine("4. Listar Casos Jurídicos e respectivos status");
                             Console.WriteLine("0. Voltar ao Menu Principal");
 
                             Console.Write("Escolha uma opção: ");
@@ -62,34 +62,31 @@ class Program{
                             switch (opcaoListas)
                             {
                                 case 1:
-                                    // Listar Advogados
-                                    // Implemente a lógica aqui chamando o método correspondente de ListAndReports.cs
                                     break;
                                 case 2:
-                                    // Listar Clientes
-                                    // Implemente a lógica aqui chamando o método correspondente de ListAndReports.cs
                                     break;
                                 case 3:
-                                    // Listar Documentos
-                                    // Implemente a lógica aqui chamando o método correspondente de ListAndReports.cs
                                     break;
                                 case 4:
-                                    // Listar Casos Jurídicos
-                                    // Implemente a lógica aqui chamando o método correspondente de ListAndReports.cs
                                     break;
                             }
                         } while (opcaoListas != 0);
                         break;
-                    case 6:
-                        // Menu para gerar relatórios
+                    case 8:
                         int opcaoRelatorios;
                         do
                         {
                             Console.WriteLine("Menu de Relatórios:");
-                            Console.WriteLine("1. Gerar Relatório de Advogados");
-                            Console.WriteLine("2. Gerar Relatório de Clientes");
-                            Console.WriteLine("3. Gerar Relatório de Documentos");
-                            Console.WriteLine("4. Gerar Relatório de Casos Jurídicos");
+                            Console.WriteLine("1. Gerar Relatório de Advogados com idade entre dois valores");
+                            Console.WriteLine("2. Gerar Clientes com idade entre dois valores");
+                            Console.WriteLine("3. Gerar Relatório de Clientes com estado civil informado pelo usuário");
+                            Console.WriteLine("4. Gerar Relatório de Clientes em ordem alfabética");
+                            Console.WriteLine("5. Gerar Relatório de Clientes cuja profissão contenha texto informado pelo usuário");
+                            Console.WriteLine("6. Gerar Relatório de Advogados e Clientes aniversariantes do mês informado");
+                            Console.WriteLine("7. Gerar Relatório de Casos com o status “Em aberto”, em ordem crescente pela data de início");
+                            Console.WriteLine("8. Gerar Relatório de Advogados em ordem decrescente pela quantidade de casos com status 'Concluído'");
+                            Console.WriteLine("9. Gerar Relatório de Casos que possuam custo com uma determinada palavra na descrição.");
+                            Console.WriteLine("10. Gerar Relatório de . Top 10 tipos de documentos mais inseridos nos casos.");
                             Console.WriteLine("0. Voltar ao Menu Principal");
 
                             Console.Write("Escolha uma opção: ");
@@ -98,25 +95,31 @@ class Program{
                             switch (opcaoRelatorios)
                             {
                                 case 1:
-                                    // Gerar Relatório de Advogados
-                                    // Implemente a lógica aqui chamando o método correspondente de ListAndReports.cs
                                     break;
                                 case 2:
-                                    // Gerar Relatório de Clientes
-                                    // Implemente a lógica aqui chamando o método correspondente de ListAndReports.cs
                                     break;
                                 case 3:
-                                    // Gerar Relatório de Documentos
-                                    // Implemente a lógica aqui chamando o método correspondente de ListAndReports.cs
                                     break;
                                 case 4:
-                                    // Gerar Relatório de Casos Jurídicos
-                                    // Implemente a lógica aqui chamando o método correspondente de ListAndReports.cs
+                                    break;
+                                case 5:
+                                    break;
+                                case 6:
+                                    break;
+                                case 7:
+                                    break;
+                                case 8:
+                                    break;
+                                case 9:
+                                    break;
+                                case 10:
                                     break;
                             }
+
                         } while (opcaoRelatorios != 0);
                         break;
                 }
+                
             } while (opcao != 0);
         }
     }

@@ -32,8 +32,6 @@ public class Escritorio{
         public Cliente? Cliente { get; set; }
         public string? Status { get; set; }
 
-    // public CasoJuridico(){}
-
         public CasoJuridico(DateTime abertura, float probabilidadeSucesso, List<(DateTime DataDeModificacao, int Codigo, string? Tipo, string? Descricao)> documentos,
                             List<(float Custos, string Descricao)>? custos, DateTime encerramento,
                             List<Advogado>? advogados, Cliente? cliente, string? status)
@@ -47,7 +45,6 @@ public class Escritorio{
             Cliente = cliente;
             Status = status;
         }
-
 
         public void AdicionarDocumento(Documento documento)
         {
@@ -94,7 +91,8 @@ public class Escritorio{
             Console.WriteLine($"Descrição: {documento.Descricao ?? "N/A"}");
             Console.WriteLine($"Data de Modificação: {documento.DataDeModificacao:dd/MM/yyyy}");
         }
-    }
+
+        }
     }
 }
 
