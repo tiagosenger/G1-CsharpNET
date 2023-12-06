@@ -4,7 +4,7 @@ using Advogado = LawSystem.Entities.Pessoa.Advogado;
 using Cliente = LawSystem.Entities.Pessoa.Cliente;
 namespace LawSystem.Entities
 {
-    public class Escritorio
+    public class Operations
     {
         public static void IniciarCaso(CasoJuridico caso, DateTime dataInicio)
         {
