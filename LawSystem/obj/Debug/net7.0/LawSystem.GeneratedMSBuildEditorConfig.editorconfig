@@ -8,6 +8,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LawSystem
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Thiago\desktop\G1-CsharpNET\LawSystem\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
+=======
+build_property.ProjectDir = C:\Users\05346323511\Desktop\G1-CsharpNET\LawSystem\
+>>>>>>> 47821d991c04d24e86bb404912c29035ced7dede

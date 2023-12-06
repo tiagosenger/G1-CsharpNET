@@ -8,11 +8,16 @@
     "net7.0": []
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Thiago\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\Gabriel\\.nuget\\packages\\": {}
+>>>>>>> 47821d991c04d24e86bb404912c29035ced7dede
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Thiago\\desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
       "projectName": "LawSystem",
       "projectPath": "C:\\Users\\Thiago\\desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
@@ -21,6 +26,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Thiago\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+      "projectUniqueName": "E:\\.NET\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
+      "projectName": "LawSystem",
+      "projectPath": "E:\\.NET\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
+      "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
+      "outputPath": "E:\\.NET\\G1-CsharpNET\\LawSystem\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> 47821d991c04d24e86bb404912c29035ced7dede
       ],
       "originalTargetFrameworks": [
         "net7.0"
