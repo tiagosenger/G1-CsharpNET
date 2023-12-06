@@ -62,11 +62,10 @@ namespace LawSystem.Entities{
             public string CNA { get; set; }
 
             public List<CasoJuridico> CasosAssociados {get; set;} = new();
-            public Advogado(string nome, string sobrenome, DateTime dataNascimento, string cpf, string cna, CasoJuridico caso)
+            public Advogado(string nome, string sobrenome, DateTime dataNascimento, string cpf, string cna)
                 : base(nome, sobrenome, dataNascimento, cpf)
             {
                 CNA = cna;
-                CasosAssociados!.Add(caso);
             }
 
 

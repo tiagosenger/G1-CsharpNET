@@ -168,7 +168,7 @@ public class ListAndReports{
                 int counter = 1;
                 foreach (var x in correspondencias)
                 {
-                    Console.WriteLine(counter + ". Abertura: " +x.Abertura+" Provabilidade de sucesso: "+x.ProbabilidadeSucesso+" ID: "+x.ID);
+                    Console.WriteLine(counter + ". Abertura: " +x.Abertura+" Provabilidade de sucesso: "+x.ProbabilidadeSucesso+" ID: "+x.Id);
                     counter += 1;
                 }
             }
