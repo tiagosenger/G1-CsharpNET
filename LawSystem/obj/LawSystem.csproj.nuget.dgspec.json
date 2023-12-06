@@ -2,6 +2,7 @@
   "format": 1,
   "restore": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\Thiago\\desktop\\G1-CsharpNET\\LawSystem\\LawSystem.csproj": {}
   },
   "projects": {
@@ -18,20 +19,27 @@
           "C:\\Users\\Thiago\\AppData\\Roaming\\NuGet\\NuGet.Config"
 =======
     "E:\\.NET\\G1-CsharpNET\\LawSystem\\LawSystem.csproj": {}
+=======
+    "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/LawSystem.csproj": {}
+>>>>>>> 2d63fc995c408f38e75b9b58af553d3f34b01416
   },
   "projects": {
-    "E:\\.NET\\G1-CsharpNET\\LawSystem\\LawSystem.csproj": {
+    "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/LawSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\.NET\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
+        "projectUniqueName": "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/LawSystem.csproj",
         "projectName": "LawSystem",
-        "projectPath": "E:\\.NET\\G1-CsharpNET\\LawSystem\\LawSystem.csproj",
-        "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
-        "outputPath": "E:\\.NET\\G1-CsharpNET\\LawSystem\\obj\\",
+        "projectPath": "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/LawSystem.csproj",
+        "packagesPath": "/home/victorquirino/.nuget/packages/",
+        "outputPath": "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config"
 >>>>>>> 47821d991c04d24e86bb404912c29035ced7dede
+=======
+          "/home/victorquirino/.nuget/NuGet/NuGet.Config"
+>>>>>>> 2d63fc995c408f38e75b9b58af553d3f34b01416
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -65,30 +73,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
         }
       }
     }
