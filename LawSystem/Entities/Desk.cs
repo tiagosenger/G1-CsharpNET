@@ -65,10 +65,10 @@ namespace LawSystem.Entities{
             }
         }
 
-        public CasoJuridico(string dataAbertura, float probabilidadeSucesso/*, Cliente cliente*/){
+        public CasoJuridico(string dataAbertura, float probabilidadeSucesso, Cliente cliente){
             setaDataAbertura(dataAbertura);
             ProbabilidadeSucesso = probabilidadeSucesso;
-            advogados = new();
+            Advogados = new();
             ClienteCaso = cliente;
             Status = "Em aberto";
             custos = new();
