@@ -8,12 +8,12 @@ public class Validator {
 
         if(advogados.Exists(a => a.CPF == cpf)) return false;
 
-        string cpfFormatado = string.Format("{0:000\\.000\\.000\\-00}", long.Parse(cpf));
+        // string cpfFormatado = string.Format("{0:000\\.000\\.000\\-00}", long.Parse(cpf));
 
-        if (cpfFormatado != cpf) {
-            Console.WriteLine("CPF inválido.");
-            return false;
-        }
+        // if (cpfFormatado != cpf) {
+        //     Console.WriteLine("CPF inválido.");
+        //     return false;
+        // }
 
         return true;
     }
@@ -23,12 +23,12 @@ public class Validator {
 
         if(clientes.Exists(a => a.CPF == cpf)) return false;
 
-        string cpfFormatado = string.Format("{0:000\\.000\\.000\\-00}", long.Parse(cpf));
+        // string cpfFormatado = string.Format("{0:000\\.000\\.000\\-00}", long.Parse(cpf));
 
-        if (cpfFormatado != cpf) {
-            Console.WriteLine("CPF inválido.");
-            return false;
-        }
+        // if (cpfFormatado != cpf) {
+        //     Console.WriteLine("CPF inválido.");
+        //     return false;
+        // }
 
         return true;
     }

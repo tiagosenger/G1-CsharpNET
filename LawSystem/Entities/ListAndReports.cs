@@ -8,9 +8,9 @@ namespace LawSystem.Entities{
 public class ListAndReports{
     
         public static class Relatorios{
-        private static List<Advogado> ListaDeAdvogados = new List<Advogado>();
-        private static List<Cliente> ListaDeClientes = new List<Cliente>();
-        private static List<CasoJuridico> ListaDeCasos = new List<CasoJuridico>();
+        public static List<Advogado> ListaDeAdvogados = new List<Advogado>();
+        public static List<Cliente> ListaDeClientes = new List<Cliente>();
+        public static List<CasoJuridico> ListaDeCasos = new List<CasoJuridico>();
 
         public static void advogadosFaixaIdade()
         {

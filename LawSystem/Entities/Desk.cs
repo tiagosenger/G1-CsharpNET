@@ -35,7 +35,7 @@ public class Escritorio{
         public string? Status { get; set; }
 
         public CasoJuridico(DateTime abertura, float probabilidadeSucesso, List<(DateTime DataDeModificacao, int Codigo, string? Tipo, string? Descricao)> documentos,
-                            List<(float Custos, string Descricao)>? custos, DateTime encerramento,
+                            List<(float Custos, string Descricao)>? custos,
                             List<Advogado>? advogados, Cliente? cliente, string? status)
         {
             Id = codigoCasos;
@@ -43,7 +43,6 @@ public class Escritorio{
             ProbabilidadeSucesso = probabilidadeSucesso;
             Documentos = documentos.Select(doc => new Documento(doc.DataDeModificacao, doc.Codigo, doc.Tipo, doc.Descricao)).ToList();
             Custos = custos;
-            Encerramento = encerramento;
             Advogados = advogados;
             Cliente = cliente;
             Status = status;
