@@ -276,7 +276,6 @@ public class ListAndReports{
             else{
                 Console.WriteLine("Não há registro de documentos.");
             }
-            
         }
         public static void ListarAdvogados()
             {
