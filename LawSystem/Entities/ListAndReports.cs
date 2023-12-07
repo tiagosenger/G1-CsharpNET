@@ -255,17 +255,27 @@ public class ListAndReports{
                 }
             }
             if (ListaTipoComQuantidade != null){
-                for (var i = 0; i < 10; i++)
+                if (ListaTipoComQuantidade.Count < 10){
+                    for (var i = 0; i < ListaTipoComQuantidade.Count; i++)
+                    {
+                        Console.Write(ListaTipoComQuantidade![i].Keys);
+                        Console.Write(" ");
+                        Console.WriteLine(ListaTipoComQuantidade[i].Values);
+                    }
+                }
+                else
                 {
-                    Console.Write(ListaTipoComQuantidade![i].Keys);
-                    Console.Write(" ");
-                    Console.WriteLine(ListaTipoComQuantidade[i].Values);
+                    for (var i = 0; i < 10; i++)
+                    {
+                        Console.Write(ListaTipoComQuantidade![i].Keys);
+                        Console.Write(" ");
+                        Console.WriteLine(ListaTipoComQuantidade[i].Values);
+                    }
                 }    
             }
             else{
                 Console.WriteLine("Não há registro de documentos.");
             }
-            
         }
         public static void ListarAdvogados()
             {
