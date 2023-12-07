@@ -13,6 +13,10 @@ public class ListAndReports{
         public static List<CasoJuridico> ListaDeCasos = new List<CasoJuridico>();
 
         public static List<PlanoConsultoria> ListaDePlanos = new List<PlanoConsultoria>();
+        
+        public static void adicionarPlanoALista(PlanoConsultoria plano){
+            ListaDePlanos.Add(Plano);
+        }
         public static void advogadosFaixaIdade()
         {
             Console.WriteLine("Informe a idade míninma: ");
