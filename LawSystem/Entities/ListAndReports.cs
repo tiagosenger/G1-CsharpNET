@@ -256,7 +256,12 @@ public class ListAndReports{
             }
             if (ListaTipoComQuantidade != null){
                 if (ListaTipoComQuantidade.Count < 10){
-                    
+                    for (var i = 0; i < ListaTipoComQuantidade.Count; i++)
+                    {
+                        Console.Write(ListaTipoComQuantidade![i].Keys);
+                        Console.Write(" ");
+                        Console.WriteLine(ListaTipoComQuantidade[i].Values);
+                    }
                 }
                 else
                 {
