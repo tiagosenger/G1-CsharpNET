@@ -176,7 +176,7 @@ public class ListAndReports{
         public static void advogadosCasosDecrescente()
         {
             
-            var correspondencias = ListaDeAdvogados.Where(x => x.Casos.Any(x=>x.Status == "concluído"));
+            var correspondencias = ListaDeAdvogados.Where(x => x.Casos.Any(x=>x.Status == "Concluído"));
             var Listaordenada = correspondencias.OrderBy(x => x.Casos.Count);
 
             if (Listaordenada == null)

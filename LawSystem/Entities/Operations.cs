@@ -153,19 +153,23 @@ namespace LawSystem.Entities
             // }
         }
 
-       public void AtualizarCasoJuridico(List<CasoJuridico> casos){
+       public void AtualizarCasoJuridico(List<CasoJuridico> casos, List<Advogado> advogados){
             Console.WriteLine("Digite o id do caso jurídico que deseja atualizar:");
             var id = Convert.ToInt32(Console.ReadLine()!);
             
             var caso = casos.SingleOrDefault(c => c.Id == id);
             if(casos == default) throw new Exception("Não existe um caso com esse id!");
 
+            if(caso.Status == "Concluído") {
+                Console.WriteLine("Esse caso já foi concluído, não pode ser atualizado");
+                return;
+            }
             int op;
             do {
                 Console.WriteLine("1 - Adicionar documento");
                 Console.WriteLine("2 - Remover documento");
                 Console.WriteLine("3 - Adicionar advogado");
-                Console.WriteLine("4 - Adicionar advogado");
+                Console.WriteLine("4 - Remover advogado");
                 Console.WriteLine("5 - Arquivar caso");
                 Console.WriteLine("6 - Concluir caso");
                 Console.WriteLine("0 - Voltar ao menu anterior");
@@ -196,47 +200,88 @@ namespace LawSystem.Entities
                         caso.DeletarDocumento(codigoDoc);
                         Console.Read();
                         break;
+                    case 3:
+                        Console.WriteLine("Digite o CNA do advogado:");
+                        var cna = Console.ReadLine()!;
+
+                        var advogado = advogados.SingleOrDefault(a => a.CNA == cna);
+                        if(advogado != default){
+                            if(advogado.Casos.Any(c => c.Id == caso.Id)){
+                                Console.WriteLine("Esse advogado já está associado a esse caso!");
+                                break;
+                            } else {
+                                caso.Advogados.Add(advogado);
+                                advogado.Casos.Add(caso);
+                                Console.Read();
+                            }
+                            
+                        } else {
+                            Console.WriteLine("Nao existe um advogado com esse CNA!");
+                        }
+                        break;
+                    case 4:
+                        Console.WriteLine("Digite o CNA do advogado:");
+                        cna = Console.ReadLine()!;
+
+                        advogado = caso.Advogados.SingleOrDefault(a => a.CNA == cna);
+                        if(advogado != default){
+                            caso.Advogados.Remove(advogado);
+                            advogado.Casos.Remove(caso);
+                            Console.Read();
+                        } else {
+                            Console.WriteLine("Nao existe um advogado com esse CNA associado a este caso!");
+                        }
+                        break;
+                    case 5:
+                        if(caso.Status != "Arquivado" && caso.Status != "Concluido"){
+                            caso.Status = "Arquivado";
+                            Console.WriteLine("O caso foi arquivado!");
+                        } else if(caso.Status == "Arquivado"){
+                            Console.WriteLine("O caso já está arquivado");
+                        } else {
+                            Console.WriteLine("Este caso já foi concluído!");
+                        }
+                        Console.Read();
+                        break;
+                    case 6:
+                        Console.WriteLine("Digite a data da conclusão:");
+                        dataHora = Console.ReadLine()!;
+                        DateTime dataEncerramento = DateTime.ParseExact(dataHora, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+                        
+                        if(dataEncerramento < caso.Abertura) {
+                            Console.WriteLine("A data de conclusão não pode ser anterior à data de abertura do caso!");
+                            break;
+                        }
+                        caso.Status = "Concluído";
+                        Console.WriteLine("Caso foi concluído!");
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida!");
+                        Console.Read();
+                        break;
+
                 }
             } while(op != 0);
 
 
        }
 
-        public static void ExcluirCaso(List<Escritorio.CasoJuridico> casos, Escritorio.CasoJuridico casoJuridico)
+        public void ExcluirCaso(List<CasoJuridico> casos)
         {
-            casos.Remove(casoJuridico);
+            Console.WriteLine("Digite o Id do caso:");
+            var id = Convert.ToInt32(Console.ReadLine()!);
+            var caso = casos.SingleOrDefault(c => c.Id == id);
+
+            if(caso != default){
+                casos.Remove(caso);
+                caso.Advogados.ForEach(a => a.Casos.Remove(caso));
+                Console.WriteLine("Caso removido com sucesso!");
+            } else Console.WriteLine("Nao existe um caso jurídico com esse id!");
         }
+   
 
-        public static void AdicionarAdvogado(Escritorio.CasoJuridico caso, Advogado advogado)
-        {
-            caso.Advogados?.Add(advogado);
-            Console.WriteLine($"Advogado {advogado.Nome} adicionado com sucesso!");
-        }
-
-        public static void AdicionarCliente(Escritorio.CasoJuridico caso, Cliente cliente)
-        {
-            caso.Cliente = cliente;
-            Console.WriteLine($"Cliente {cliente.Nome} adicionado ao Caso Juridico com sucesso!");
-        }
-
-        public static void ExcluirAdvogado(Escritorio.CasoJuridico caso, Advogado advogado)
-        {
-            caso.Advogados?.Remove(advogado);
-            Console.WriteLine("Advogado removido com sucesso!");
-        }
-
-        public static void ExcluirCliente(Escritorio.CasoJuridico caso){
-            if (caso.Cliente != null)
-            {
-                Cliente clienteRemovido = caso.Cliente;
-                caso.Cliente = null;
-                Console.WriteLine($"Cliente {clienteRemovido.Nome} removido com sucesso!");
-            }
-            else{
-                Console.WriteLine("Não há cliente associado a este caso.");
-            }
-
-        }   
 
     }
 }
