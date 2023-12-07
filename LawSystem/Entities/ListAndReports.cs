@@ -195,6 +195,28 @@ public class ListAndReports{
                 }
             }
         }
+
+        public static void casosComCustoContendoPalavra(){
+            Console.WriteLine("Digite uma palavra para pesquisar:");
+            var palavra = Console.ReadLine()!;
+
+            if(string.IsNullOrEmpty(palavra)){
+                throw new Exception("Digite uma descrição! A busca não pode ser vazia!");
+            }
+
+            Console.WriteLine("Casos com custos relacionados à pesquisa:");
+            var casos = ListaDeCasos.Where(c => c.Custos.Any(cs => cs.Descricao.Contains(palavra))).ToList();
+
+            if(casos.Count == 0){
+                Console.WriteLine("Não foram encontrados casos contendo essa descrição nos custos");
+                return;
+            }
+
+            int counter = 1;
+            foreach(var caso in casos){
+                Console.WriteLine(counter + ". Abertura: " +caso.Abertura+" Provabilidade de sucesso: "+caso.ProbabilidadeSucesso+" ID: "+caso.Id);
+            }
+        }
         public static void tiposMaisCadastrados()
         {
             
