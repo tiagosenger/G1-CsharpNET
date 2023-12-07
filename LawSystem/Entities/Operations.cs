@@ -264,8 +264,6 @@ namespace LawSystem.Entities
 
                 }
             } while(op != 0);
-
-
        }
 
         public void ExcluirCaso(List<CasoJuridico> casos)
@@ -280,8 +278,27 @@ namespace LawSystem.Entities
                 Console.WriteLine("Caso removido com sucesso!");
             } else Console.WriteLine("Nao existe um caso jurídico com esse id!");
         }
-   
 
+        public void AdicionarPlano(){
+            PlanoConsultoria novoPlano = new PlanoConsultoria();
+            
+            Console.WriteLine("Qual o título do plano que deseja adicionar?");
+            string titulo = Console.ReadLine()!;
+            novoPlano.Titulo = titulo;
+            
+            Console.WriteLine("Qual o valor do plano?");
+            double valor = double.Parse(Console.ReadLine()!);
+            novoPlano.ValorPorMes = valor;
+            
+            Console.WriteLine("Quantos benefícios são?");
+            int qtd = int.Parse(Console.ReadLine()!);
+            for(int i = 0; i < qtd;){
+                Console.WriteLine($"Digite o {i + 1}º benefício");
+                string beneficio = Console.ReadLine()!;
+                novoPlano.Beneficios.Add(beneficio);
+            }
 
+            ListAndReports.Relatorios.ListaDePlanos.Add(novoPlano);
+        }
     }
 }
