@@ -1,5 +1,5 @@
 #region Definições de Pessoa, Advogado e Cliente herdam essas definições.
-
+using IPagamento = Payments.IPagamento;
 namespace LawSystem.Entities{
     public class Pessoa
     {
@@ -103,9 +103,9 @@ namespace LawSystem.Entities{
             public string EstadoCivil { get; set; }
             public string Profissao { get; set; }
             public PlanoConsultoria Plano {get; set;} 
-            public List<iPagamentos> Pagamentos {get; set;}
+            public List<IPagamento> Pagamentos {get; set;}
 
-            public Cliente(string nome, string sobrenome, DateTime dataNascimento, string cpf, string estadoCivil, string profissao, PlanoConsultoria plano, List<iPagamentos> pagamentos)
+            public Cliente(string nome, string sobrenome, DateTime dataNascimento, string cpf, string estadoCivil, string profissao, PlanoConsultoria plano, List<IPagamento> pagamentos)
                 : base(nome, sobrenome, dataNascimento, cpf)
             {
                 EstadoCivil = estadoCivil;
