@@ -18,7 +18,7 @@ class Program{
                 Console.WriteLine("1. Adicionar Advogado");
                 Console.WriteLine("2. Adicionar Cliente");
                 Console.WriteLine("3. Adicionar Caso Jurídico");
-                Console.WriteLine("4. Adicionar Documento");
+                Console.WriteLine("4. Atualizar Caso jurídico");
                 Console.WriteLine("5. Exibir Informações de um Documento");  
                 Console.WriteLine("6. Excluir Documento");                                       
                 Console.WriteLine("7. Gerar Listas");

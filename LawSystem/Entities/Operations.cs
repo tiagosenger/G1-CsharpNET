@@ -153,9 +153,53 @@ namespace LawSystem.Entities
             // }
         }
 
-       public void AtualizarCasoJuridico(Escritorio.CasoJuridico casoJuridico, string novoStatus){
-            casoJuridico.Status = novoStatus;
-            Console.WriteLine("Caso Jurídico atualizado com sucesso!");
+       public void AtualizarCasoJuridico(List<CasoJuridico> casos){
+            Console.WriteLine("Digite o id do caso jurídico que deseja atualizar:");
+            var id = Convert.ToInt32(Console.ReadLine()!);
+            
+            var caso = casos.SingleOrDefault(c => c.Id == id);
+            if(casos == default) throw new Exception("Não existe um caso com esse id!");
+
+            int op;
+            do {
+                Console.WriteLine("1 - Adicionar documento");
+                Console.WriteLine("2 - Remover documento");
+                Console.WriteLine("3 - Adicionar advogado");
+                Console.WriteLine("4 - Adicionar advogado");
+                Console.WriteLine("5 - Arquivar caso");
+                Console.WriteLine("6 - Concluir caso");
+                Console.WriteLine("0 - Voltar ao menu anterior");
+
+                op = Convert.ToInt32(Console.ReadLine()!);
+
+                switch(op){
+                    case 1:
+                        Console.WriteLine("Data e hora de modificacao:");
+                        var dataHora = Console.ReadLine()!;
+                        DateTime dataModificacao = DateTime.ParseExact(dataHora, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+                        Console.WriteLine("Código do documento: ");
+                        var codigo = Convert.ToInt32(Console.ReadLine()!);
+                        Console.WriteLine("Tipo do documento: ");
+                        var tipo = Console.ReadLine()!;
+                        Console.WriteLine("Descrição do documento: ");
+                        var descricao = Console.ReadLine()!;
+
+                        var documento = new Documento(dataModificacao, codigo, tipo, descricao);
+                        caso.AdicionarDocumento(documento);
+                        Console.WriteLine("Documento adicionado ao caso!");
+                        break;
+                    
+                    case 2:
+                        Console.WriteLine("Digite o codigo do documento: ");
+                        var codigoDoc = Convert.ToInt32(Console.ReadLine()!);
+
+                        caso.DeletarDocumento(codigoDoc);
+                        Console.Read();
+                        break;
+                }
+            } while(op != 0);
+
+
        }
 
         public static void ExcluirCaso(List<Escritorio.CasoJuridico> casos, Escritorio.CasoJuridico casoJuridico)

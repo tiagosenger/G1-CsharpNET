@@ -95,6 +95,11 @@ public class Escritorio{
             Console.WriteLine($"Data de Modificação: {documento.DataDeModificacao:dd/MM/yyyy}");
         }
 
+        public void AdicionarAdvogado(Advogado advogado){
+            Advogados.Add(advogado);
+            Console.WriteLine("Advogado associado ao caso com sucesso!!!\n");
+        }
+
         }
     }
 }
