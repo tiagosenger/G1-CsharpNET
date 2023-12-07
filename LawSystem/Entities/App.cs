@@ -24,10 +24,9 @@ using LawSystem.Entities;
                 Console.WriteLine("3. Adicionar Caso Jurídico");
                 Console.WriteLine("4. Atualizar Caso jurídico");
                 Console.WriteLine("5. Remover caso jurídico");
-                // Console.WriteLine("5. Exibir Informações de um Documento");  
-                // Console.WriteLine("6. Excluir Documento");                                       
                 Console.WriteLine("6. Gerar Listas");
                 Console.WriteLine("7. Gerar Relatórios");
+                Console.WriteLine("8. Efetuar Pagamento");
                 Console.WriteLine("0. Sair");
 
                 Console.Write("Escolha uma opção: ");
@@ -38,7 +37,6 @@ using LawSystem.Entities;
                     Console.Read();
                 }else {
                     opcao = Convert.ToInt32(entrada);
-
 
                     switch (opcao)
                     {
@@ -214,6 +212,10 @@ using LawSystem.Entities;
 
                             } while (opcaoRelatorios != 0);
                             break;
+                        case 8:
+                        operacoes.RealizarPagamento(ListAndReports.Relatorios.ListaDeClientes);
+                        break;
+                        
                         case 0:
                             break;
                         default:
