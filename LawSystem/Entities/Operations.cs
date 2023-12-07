@@ -297,6 +297,8 @@ namespace LawSystem.Entities
                 string beneficio = Console.ReadLine()!;
                 novoPlano.Beneficios.Add(beneficio);
             }
+            
+            ListAndReports.Relatorios.ListaDePlanos.Add(novoPlano);
         }
     }
 }
