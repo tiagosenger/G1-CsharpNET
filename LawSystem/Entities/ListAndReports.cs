@@ -12,6 +12,7 @@ public class ListAndReports{
         public static List<Cliente> ListaDeClientes = new List<Cliente>();
         public static List<CasoJuridico> ListaDeCasos = new List<CasoJuridico>();
 
+        public static List<PlanoConsultoria> ListaDePlanos = new List<PlanoConsultoria>();
         public static void advogadosFaixaIdade()
         {
             Console.WriteLine("Informe a idade míninma: ");
@@ -320,6 +321,19 @@ public class ListAndReports{
                     Console.WriteLine($"Probabilidade de Sucesso: {casoJuridico.ProbabilidadeSucesso}%");
                     Console.WriteLine($"Status: {casoJuridico.Status ?? "N/A"}");
                     Console.WriteLine();
+                }
+            }
+            public static void ListarPlanos(){
+                foreach (var plano in ListaDePlanos)
+                {
+                    Console.WriteLine("Titulo: "+plano.Titulo);
+                    Console.WriteLine("Valor por mês: "+plano.ValorPorMes);
+                    Console.WriteLine("Benefícios: ");
+                    int counter = 1;
+                    foreach (var beneficio in plano.Beneficios)
+                    {
+                        Console.WriteLine(counter+". "+beneficio);
+                    }
                 }
             }
         }

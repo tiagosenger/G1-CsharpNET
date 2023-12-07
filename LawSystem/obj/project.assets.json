@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "/home/tiago-senger-santos/.nuget/packages/": {}
+    "/home/gabriel-dos-teles/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/tiago-senger-santos/Área de trabalho/G1-CsharpNET/LawSystem/LawSystem.csproj",
+      "projectUniqueName": "/home/gabriel-dos-teles/Área de trabalho/G1-CsharpNET/LawSystem/LawSystem.csproj",
       "projectName": "LawSystem",
-      "projectPath": "/home/tiago-senger-santos/Área de trabalho/G1-CsharpNET/LawSystem/LawSystem.csproj",
-      "packagesPath": "/home/tiago-senger-santos/.nuget/packages/",
-      "outputPath": "/home/tiago-senger-santos/Área de trabalho/G1-CsharpNET/LawSystem/obj/",
+      "projectPath": "/home/gabriel-dos-teles/Área de trabalho/G1-CsharpNET/LawSystem/LawSystem.csproj",
+      "packagesPath": "/home/gabriel-dos-teles/.nuget/packages/",
+      "outputPath": "/home/gabriel-dos-teles/Área de trabalho/G1-CsharpNET/LawSystem/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/tiago-senger-santos/.nuget/NuGet/NuGet.Config"
+        "/home/gabriel-dos-teles/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.113/RuntimeIdentifierGraph.json"
       }
     }
   }
