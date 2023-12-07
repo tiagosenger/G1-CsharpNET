@@ -255,11 +255,17 @@ public class ListAndReports{
                 }
             }
             if (ListaTipoComQuantidade != null){
-                for (var i = 0; i < 10; i++)
+                if (ListaTipoComQuantidade.Count < 10){
+                    
+                }
+                else
                 {
-                    Console.Write(ListaTipoComQuantidade![i].Keys);
-                    Console.Write(" ");
-                    Console.WriteLine(ListaTipoComQuantidade[i].Values);
+                    for (var i = 0; i < 10; i++)
+                    {
+                        Console.Write(ListaTipoComQuantidade![i].Keys);
+                        Console.Write(" ");
+                        Console.WriteLine(ListaTipoComQuantidade[i].Values);
+                    }
                 }    
             }
             else{
