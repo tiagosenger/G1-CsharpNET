@@ -7,6 +7,7 @@ using Advogado = LawSystem.Entities.Pessoa.Advogado;
 using Cliente = LawSystem.Entities.Pessoa.Cliente;
 using Documento = LawSystem.Entities.Escritorio.Documento;
 using CasoJuridico = LawSystem.Entities.Escritorio.CasoJuridico;
+using Payments;
 namespace LawSystem.Entities
 {
     public class Operations
@@ -299,6 +300,51 @@ namespace LawSystem.Entities
             }
 
             ListAndReports.Relatorios.ListaDePlanos.Add(novoPlano);
+        }
+
+        public void RealizarPagamento(List<Cliente> clientes){
+            Console.WriteLine("Digite o cpf do cliente para realizar o pagamento:");
+            var cpf = Console.ReadLine()!;
+
+            var cliente = clientes.SingleOrDefault(c => c.CPF == cpf);
+
+            if(cliente != default){
+                Console.WriteLine("Qual o tipo de pagamento?");
+                Console.WriteLine("\n1. Cartão de crédito\n2. Pix\n3. Dinheiro");
+                Console.Write("Digite uma opção:");
+                var opcao = Convert.ToInt32(Console.ReadLine()!);
+
+                Console.WriteLine("Descricao do pagamento: ");
+                var descricao = Console.ReadLine()!;
+                Console.WriteLine("Valor do pagamento:");
+                var valor = float.Parse(Console.ReadLine()!);
+
+                switch(opcao) {
+                    case 1:
+                        var pagamentoC = new Cartao(descricao, valor);
+                        cliente.Pagamentos.Add(pagamentoC);
+                        pagamentoC.RealizarPagamento();
+                        break;
+                    case 2:
+                        var pagamentoP = new Pix(descricao, valor);
+                        cliente.Pagamentos.Add(pagamentoP);
+                        pagamentoP.RealizarPagamento();
+                        break;
+                    case 3:
+                        var pagamentoD = new Dinheiro(descricao, valor);
+                        cliente.Pagamentos.Add(pagamentoD);
+                        pagamentoD.RealizarPagamento();
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida!");
+                        break;
+
+                }
+            } else {
+                Console.WriteLine("Cliente não encontrado!");
+            }
+
+            Console.Read();
         }
     }
 }

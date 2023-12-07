@@ -7,7 +7,10 @@ public class Cartao : IPagamento
     public DateTime DataHora {get; set;}
 
     public Cartao(string descricao, double valor){
-
+        Descricao = descricao;
+        ValorBruto = valor;
+        Desconto = 0.0;
+        DataHora = DateTime.Now;
     }
 
     public void RealizarPagamento(){
