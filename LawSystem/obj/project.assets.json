@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "/home/victorquirino/.nuget/packages/": {}
+    "/home/ricardo/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/LawSystem.csproj",
+      "projectUniqueName": "/home/ricardo/Documentos/G1-CsharpNET/LawSystem/LawSystem.csproj",
       "projectName": "LawSystem",
-      "projectPath": "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/LawSystem.csproj",
-      "packagesPath": "/home/victorquirino/.nuget/packages/",
-      "outputPath": "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/obj/",
+      "projectPath": "/home/ricardo/Documentos/G1-CsharpNET/LawSystem/LawSystem.csproj",
+      "packagesPath": "/home/ricardo/.nuget/packages/",
+      "outputPath": "/home/ricardo/Documentos/G1-CsharpNET/LawSystem/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/victorquirino/.nuget/NuGet/NuGet.Config"
+        "/home/ricardo/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -54,12 +54,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.14, 7.0.14]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "version": "[7.0.14, 7.0.14]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.14, 7.0.14]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/228/sdk/8.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
