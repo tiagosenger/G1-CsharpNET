@@ -3,6 +3,7 @@ using Advogado = LawSystem.Entities.Pessoa.Advogado;
 using Cliente = LawSystem.Entities.Pessoa.Cliente;
 using Documento = LawSystem.Entities.Escritorio.Documento;
 using CasoJuridico = LawSystem.Entities.Escritorio.CasoJuridico;
+using System.Diagnostics.Metrics;
 
 namespace LawSystem.Entities{
 public class ListAndReports{
@@ -12,6 +13,8 @@ public class ListAndReports{
         public static List<Cliente> ListaDeClientes = new List<Cliente>();
         public static List<CasoJuridico> ListaDeCasos = new List<CasoJuridico>();
 
+        public static List<PlanoConsultoria> ListaDePlanos = new List<PlanoConsultoria>();
+        
         public static void advogadosFaixaIdade()
         {
             Console.WriteLine("Informe a idade míninma: ");
@@ -205,7 +208,7 @@ public class ListAndReports{
             }
 
             Console.WriteLine("Casos com custos relacionados à pesquisa:");
-            var casos = ListaDeCasos.Where(c => c.Custos.Any(cs => cs.Descricao.Contains(palavra))).ToList();
+            var casos = ListaDeCasos.Where(c => c.Custos!.Any(cs => cs.Descricao.Contains(palavra))).ToList();
 
             if(casos.Count == 0){
                 Console.WriteLine("Não foram encontrados casos contendo essa descrição nos custos");
@@ -320,6 +323,37 @@ public class ListAndReports{
                     Console.WriteLine($"Probabilidade de Sucesso: {casoJuridico.ProbabilidadeSucesso}%");
                     Console.WriteLine($"Status: {casoJuridico.Status ?? "N/A"}");
                     Console.WriteLine();
+                }
+            }
+            public static void ListarPlanos(){
+                foreach (var plano in ListaDePlanos)
+                {
+                    Console.WriteLine("Titulo: "+plano.Titulo);
+                    Console.WriteLine("Valor por mês: "+plano.ValorPorMes);
+                    Console.WriteLine("Benefícios: ");
+                    int counter = 1;
+                    foreach (var beneficio in plano.Beneficios)
+                    {
+                        Console.WriteLine(counter+". "+beneficio);
+                        counter += 1;
+                    }
+                }
+            }
+            public static void ListarPagamentosDosCliente(){
+                int counterC = 1;
+                foreach (var cliente in ListaDeClientes)
+                {
+                    int counterP = 1;
+                    Console.WriteLine(counterC+".");
+                    Console.WriteLine(cliente.Nome);
+                    Console.WriteLine("Lista de pagamentos: ");
+                    foreach (var pagamento in cliente.Pagamentos)
+                    {
+                        Console.WriteLine("Pagamento "+counterP);
+                        Console.WriteLine(pagamento);
+                        counterP += 1;
+                    }
+                    counterC += 1;
                 }
             }
         }
