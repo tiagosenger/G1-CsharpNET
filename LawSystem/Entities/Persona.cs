@@ -102,12 +102,16 @@ namespace LawSystem.Entities{
         {
             public string EstadoCivil { get; set; }
             public string Profissao { get; set; }
+            public PlanoConsultoria Plano {get; set;} 
+            public List<iPagamentos> Pagamentos {get; set;}
 
-            public Cliente(string nome, string sobrenome, DateTime dataNascimento, string cpf, string estadoCivil, string profissao)
+            public Cliente(string nome, string sobrenome, DateTime dataNascimento, string cpf, string estadoCivil, string profissao, PlanoConsultoria plano, List<iPagamentos> pagamentos)
                 : base(nome, sobrenome, dataNascimento, cpf)
             {
                 EstadoCivil = estadoCivil;
                 Profissao = profissao;
+                Plano = plano;
+                Pagamentos = new();
             }
 
             public override bool ValidarCPF(List<Pessoa> pessoas)
