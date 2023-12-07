@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/LawSystem.csproj": {}
+    "/home/tiago-senger-santos/Área de trabalho/G1-CsharpNET/LawSystem/LawSystem.csproj": {}
   },
   "projects": {
-    "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/LawSystem.csproj": {
+    "/home/tiago-senger-santos/Área de trabalho/G1-CsharpNET/LawSystem/LawSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/LawSystem.csproj",
+        "projectUniqueName": "/home/tiago-senger-santos/Área de trabalho/G1-CsharpNET/LawSystem/LawSystem.csproj",
         "projectName": "LawSystem",
-        "projectPath": "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/LawSystem.csproj",
-        "packagesPath": "/home/victorquirino/.nuget/packages/",
-        "outputPath": "/home/victorquirino/ResidênciaTic18/DotNet/G1-CsharpNET/LawSystem/obj/",
+        "projectPath": "/home/tiago-senger-santos/Área de trabalho/G1-CsharpNET/LawSystem/LawSystem.csproj",
+        "packagesPath": "/home/tiago-senger-santos/.nuget/packages/",
+        "outputPath": "/home/tiago-senger-santos/Área de trabalho/G1-CsharpNET/LawSystem/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/victorquirino/.nuget/NuGet/NuGet.Config"
+          "/home/tiago-senger-santos/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
