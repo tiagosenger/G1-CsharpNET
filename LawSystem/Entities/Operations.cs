@@ -288,7 +288,7 @@ namespace LawSystem.Entities
             
             Console.WriteLine("Qual o valor do plano?");
             double valor = double.Parse(Console.ReadLine()!);
-            novoPlano.Valor = valor;
+            novoPlano.ValorPorMes = valor;
             
             Console.WriteLine("Quantos benefícios são?");
             int qtd = int.Parse(Console.ReadLine()!);
@@ -297,7 +297,7 @@ namespace LawSystem.Entities
                 string beneficio = Console.ReadLine()!;
                 novoPlano.Beneficios.Add(beneficio);
             }
-            
+
             ListAndReports.Relatorios.ListaDePlanos.Add(novoPlano);
         }
     }
